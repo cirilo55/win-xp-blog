@@ -13,6 +13,8 @@ tags: meme
 *{
     margin: 0;
     --blue-win-xp : linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7)
+    --gray-win-xp : #ece9d8;
+
 }
 body{
     background-image: url('./public/images/windosxp.webp');
@@ -22,6 +24,26 @@ body{
     overflow: hidden;
 
 }
+.win-head{
+    font-family: Trebuchet MS;
+    /* background: var(--blue-win-xp); */
+    background: linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7);
+
+    padding: 3px 5px 3px 3px;
+    border-top: 1px solid #0831d9;
+    border-left: 1px solid #0831d9;
+    border-right: 1px solid #001ea0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 7px;
+    font-size: 13px;
+    text-shadow: 1px 1px #0f1089;
+    height: 21px;
+    display: flex;
+    color: white;
+    text-transform: uppercase;
+
+    
+  }
 
 .mecha-godzilla{
     position: absolute;
@@ -47,6 +69,189 @@ body{
     animation: moveUpdown 1s infinite alternate;
 
 }
+
+/* Pagina index.php */
+.home-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .post-background{
+        width: 800px;
+        height: 800px;
+        display: grid;
+        place-items: center;
+        background-image: url('public/images/city-night.jpg');
+        border: 5px solid rgba(0, 0, 0, 0.8) ;
+        overflow: auto;
+        margin-top: 30px;
+        z-index: 4;
+    
+    
+    }
+    .post-stage{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .post{
+        max-height: 600px;
+        min-height: 500px;
+        width: 400px;
+        background-color: #ece9d8;
+        position: relative;
+        margin-top: 15px;
+    
+    }
+    
+    .post-head{
+      font-family: Trebuchet MS;
+      background: linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7);
+      padding: 3px 5px 3px 3px;
+      border-top: 1px solid #0831d9;
+      border-left: 1px solid #0831d9;
+      border-right: 1px solid #001ea0;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 7px;
+      font-size: 13px;
+      text-shadow: 1px 1px #0f1089;
+      height: 21px;
+      display: flex;
+      
+    }
+    
+    .post-head-title{
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0;
+      margin-right: 24px;
+      text-transform: uppercase;
+      text-shadow: 1px 1px #0f1089;
+      padding-top: 4px;
+      padding: 4px;
+    
+      &:hover{
+        color: black
+      }
+    }
+    
+    .post-head-button-group{
+        margin-left: auto;
+    }
+    .post-body{
+        border: 1px solid rgba(0, 0, 0, 0.8) ;
+        max-height: 679px;
+        min-height: 579px;
+    
+    }
+    
+    .container-post-thumbnail{
+        width: 350px;
+        display: flex;
+        margin: 20px;
+    
+    }
+    
+    .post-body h1{
+        padding: 5px;
+    }
+    
+    .image-post{
+        width: calc(100% - 40px);
+        margin-left: 20px;
+    }
+    .content{
+        padding: 10px;
+        margin: 0 10px;
+        background-color: white;
+        height: auto;
+        overflow: hidden;
+    
+        /* font-size: 16px */
+        margin-top: 5px
+    }
+    .post-footer{
+        position: absolute;
+        bottom: 0; /* Coloca o rodapé no final do post */
+        left: 0;
+        border-top: 1px solid #ccc; /* Borda superior */
+        margin-left: 10px;
+        width: calc(100% -10px)
+    }
+    
+    .post-body a{
+        text-decoration: none;
+    }
+    .post-flags {
+        border-top: 1px solid #ccc; /* Borda superior */
+    
+    }
+    
+    
+    @media (max-height: 850px) {
+    
+        .post-background{
+            max-height: 550px;
+    
+        
+        }
+    }
+    
+    @media (max-height: 550px) {
+    
+        .post-background{
+            height: 100%;
+            margin: 0 10px
+    
+        
+        }
+    }
+}
+
+/* PAGINA PAGE.PHP */
+.container-single{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container{
+        height: 50%;
+
+    }
+    .page-item{
+
+        height: 350px;
+        height: 100%;
+    }
+    article{
+        background-color: #ece9d8;
+
+        overflow: auto;
+        height: 100%;
+    }
+
+
+}
+
+
+
+
+/* Effeito de lasto no mouse */
+.trail {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-image: url('public/images/pointer.png');
+    background-size: 32px 32px;
+
+    pointer-events: none; 
+}
+
+
 /* animações css */
 .pulse:hover {
     -webkit-animation-name: pulse;
@@ -94,3 +299,5 @@ body{
         transform: translateY(-5px);
     }
 }
+
+

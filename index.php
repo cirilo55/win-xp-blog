@@ -6,7 +6,7 @@ require_once('header.php')
 <body>
 <script src='<?=get_template_directory_uri()?>./js/util/trailEffect.js'></script>
 
-<section>
+<section class='home-container'>
     <div class="post-background" id="post-background">
         <div class="post-stage">
         <?php
@@ -20,6 +20,7 @@ require_once('header.php')
 
         if ( $query->have_posts() ) :
             while ( $query->have_posts() ) : $query->the_post();
+
                 // Conteúdo de cada postagem vai aqui
                 //logica que vai determinar o espaço de texto.
                 $thumbnail_id = get_post_thumbnail_id();
@@ -29,22 +30,21 @@ require_once('header.php')
                 $thumbnail_data = wp_get_attachment_image_src($thumbnail_id, $args);
                 $content = get_the_content();
                 $content_length = strlen($content);
-                $postLength = 1700;
+                $postLength = 2000;
                 
                 if($thumbnail_data){
                     $thumbnail_height = $thumbnail_data[2];
                     if($thumbnail_height > 200 && $thumbnail_height < 300)
                     {
-                        $postLength = 400;
+                        $postLength = 1000;
     
                     }else if($thumbnail_height > 300){
-                        $postLength = 200;
+                        $postLength = 410;
     
                     }
     
                 }
-              
-
+            
                 ?>
                 <div class="post">
                 <div class='post-head'>
@@ -56,16 +56,19 @@ require_once('header.php')
                 </a>
 
                     <div class='post-head-button-group'>
-                    <img src="<?=get_template_directory_uri()?>/public/images/minimize.svg" alt="" height="20px" width="20px">
-                    <img src="<?=get_template_directory_uri()?>/public/images/maximize.svg" alt="" height="20px" width="20px">
-                    <img src="<?=get_template_directory_uri()?>/public/images/close.svg" alt="" height="20px" width="20px">
+                        <img src="<?=get_template_directory_uri()?>/public/images/minimize.svg" alt="" height="20px" width="20px">
+                        <img src="<?=get_template_directory_uri()?>/public/images/maximize.svg" alt="" height="20px" width="20px">
+                        <img src="<?=get_template_directory_uri()?>/public/images/close.svg" alt="" height="20px" width="20px">
                     </div>
                 </div>
                     <div class="post-body">
+                        <?php if(has_post_thumbnail()){ ?>
                         <div class="container-post-thumbnail">
                         <?php 
                         the_post_thumbnail($args) ?>
                         </div>
+                        <?php }?>
+
                         <div class="content">
                             <?php 
                                 if($content_length > $postLength){
