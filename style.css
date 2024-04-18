@@ -1,29 +1,52 @@
 /*
-Theme Name: Coffe And Dice
+Theme Name: Win-xp blog
 Author: Cirilo Andrade - Cid
-Description: Tema customizado para Coffe And Dice
+Description: Tema customizado para win-xp
 Version: 1.0.0
-Tags: coffe, café , Jogos, boardgame
-*/
+tags: meme
+ */
 
+:root{
+    --main-font: 'Hind';
+
+}
 *{
     margin: 0;
+    --blue-win-xp : linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7)
 }
 body{
     background-image: url('./public/images/windosxp.webp');
     background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+
+}
+
+.mecha-godzilla{
+    position: absolute;
+    bottom: 30%;
+    left: 80%;
     
+    width: 150px;
+    height: 150px;
+
+    z-index: 3;
+
 }
 
 .anime-fofinho{
     position: absolute;
     bottom: 10%;
     left: 80%;
+
     width: 150px;
     height: 150px;
-    z-index: 3;
-}
 
+    z-index: 3;
+    animation: moveUpdown 1s infinite alternate;
+
+}
 /* animações css */
 .pulse:hover {
     -webkit-animation-name: pulse;
@@ -63,4 +86,11 @@ body{
     
 }
 
-
+@keyframes moveUpdown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}

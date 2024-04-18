@@ -9,7 +9,9 @@ section{
     justify-content: center;
     align-items: center;
 
+
 }
+
 
 .post-background{
     width: 800px;
@@ -20,16 +22,24 @@ section{
     border: 5px solid rgba(0, 0, 0, 0.8) ;
     overflow: auto;
     margin-top: 30px;
+    z-index: 4;
 
+
+}
+.post-stage{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .post{
-    max-height: 700px;
-    min-height: 600px;
+    max-height: 600px;
+    min-height: 500px;
     width: 400px;
     background-color: #ece9d8;
     position: relative;
-    margin-bottom: 15px;
+    margin-top: 15px;
+
 }
 
 .post-head{
@@ -58,6 +68,9 @@ section{
   padding-top: 4px;
   padding: 4px;
 
+  &:hover{
+    color: black
+  }
 }
 
 .post-head-button-group{
@@ -69,6 +82,14 @@ section{
     min-height: 579px;
 
 }
+
+.container-post-thumbnail{
+    width: 350px;
+    display: flex;
+    margin: 20px;
+
+}
+
 .post-body h1{
     padding: 5px;
 }
@@ -81,15 +102,59 @@ section{
     padding: 10px;
     margin: 0 10px;
     background-color: white;
+    height: auto;
+    overflow: hidden;
+
+    /* font-size: 16px */
+    margin-top: 5px
+}
+.post-footer{
+    position: absolute;
+    bottom: 0; /* Coloca o rodapé no final do post */
+    left: 0;
+    border-top: 1px solid #ccc; /* Borda superior */
+    margin-left: 10px;
+    width: calc(100% -10px)
 }
 
 .post-body a{
     text-decoration: none;
 }
 .post-flags {
-    position: absolute;
-    bottom: 0; /* Coloca o rodapé no final do post */
-    left: 0;
     border-top: 1px solid #ccc; /* Borda superior */
+
 }
+
+
+@media (max-height: 850px) {
+
+    .post-background{
+        max-height: 550px;
+
+    
+    }
+}
+
+@media (max-height: 550px) {
+
+    .post-background{
+        height: 100%;
+        margin: 0 10px
+
+    
+    }
+}
+/* Effeito de lasto no mouse */
+.trail {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-image: url('../public/images/pointer.png');
+    background-size: 32px 32px;
+
+    pointer-events: none; 
+}
+
+
 
