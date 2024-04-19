@@ -12,7 +12,7 @@
 
 <style scoped>
     footer{
-    position: absolute;
+    position: fixed;
     bottom: 0; /* Coloca o rodapé no final do post */
     left: 0;
 
@@ -38,6 +38,12 @@
     .start-label{
         color: white;
         font-size: 20px;
+    }
+
+    @media (width <800px) {
+        footer{
+         display: none   ;
+        }
     }
 
 

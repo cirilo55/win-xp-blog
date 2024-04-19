@@ -71,28 +71,38 @@ require_once('header.php')
 
                         <div class="content">
                             <?php 
+                            $content_without_images = preg_replace('/<img[^>]+>/', '', $content);
+
                                 if($content_length > $postLength){
-                                    $content_excerpt = substr($content, 0, $postLength);
+                                    $content_excerpt = substr($content_without_images, 0, $postLength);
                                     ?>
                                     <?=$content_excerpt?> <a href='<?php the_permalink() ?>'>Ler Mais</a>
                                     <?php
                                 }else{
-                                    echo $content;
+                                    echo $content_without_images;
 
                                 }
                             ?>
                         </div>
 
                         <div class="post-footer">
+                            <?php if(get_comments_number() > 0){?>
                             <div class="comments">            
                                 <a href="<?php the_permalink(); ?>">
-                                    1 comment
+                                <?=get_comments_number();?><?=(get_comments_number() > 1 ? ' comments': ' comment')?>
                                 </a>
                             </div>
+                            <?php } ?>
                             <div class="post-flags">
-                                <small><a href="">#windows</a></small>
-                                <small><a href="">#doom</a></small>
-                                <small><a href="">#weed</a></small>
+                            <?php
+                                // Exibindo as categorias
+                                $categories = get_the_category();
+                                if ($categories) {
+                                    foreach ($categories as $category) {
+                                        echo '<small><a href="' . get_category_link($category->term_id) . '">#' . $category->name . ' </a></small>';
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
